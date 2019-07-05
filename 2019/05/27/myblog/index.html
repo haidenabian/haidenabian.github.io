@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>如何在linux下用github+hexo搭建自己的博客 | ld的个人博客</title>
+  <title>ld的个人博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -173,16 +173,48 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2019-05-25T09:57:09.000Z" itemprop="datePublished">
-          2019-05-25
+      <time datetime="2019-05-27T12:48:21.729Z" itemprop="datePublished">
+          2019-05-27
       </time>
     
 </span>
-                <h1>如何在linux下用github+hexo搭建自己的博客</h1>
+                <h1></h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		
+      		<h1 id="这是我第一次在linux下安装github服务器-hexo博客框架搭建自己的个人博客，虽然过程有很多问题，但好在最后还是安装成功了。"><a href="#这是我第一次在linux下安装github服务器-hexo博客框架搭建自己的个人博客，虽然过程有很多问题，但好在最后还是安装成功了。" class="headerlink" title="这是我第一次在linux下安装github服务器+hexo博客框架搭建自己的个人博客，虽然过程有很多问题，但好在最后还是安装成功了。"></a>这是我第一次在linux下安装github服务器+hexo博客框架搭建自己的个人博客，虽然过程有很多问题，但好在最后还是安装成功了。</h1><h2 id="首先搭建博客环境"><a href="#首先搭建博客环境" class="headerlink" title="首先搭建博客环境"></a>首先搭建博客环境</h2><ul>
+<li>首先在linux下安装git</li>
+</ul>
+<hr>
+<p><strong>root@ld:~/blog/ldblog/source/_posts# apt-get install git<br>  Reading package lists… Done<br>  Building dependency tree<br>  Reading state information… Done<br>  git is already the newest version (1:2.7.4-0ubuntu1.6).<br>  0 upgraded, 0 newly installed, 0 to remove and 370 not upgrade</strong></p>
+<hr>
+<ul>
+<li>安装nodejs和npm，我是安装的nvm来安装nodejs</li>
+<li>通过网上找curl -o- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh</a> | bash  安装nvm</li>
+<li>nvm install node安装nodejs和npm<h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3></li>
+<li>npm install hexo-cli -g命令来安装hexo框架</li>
+<li>运行hexo init 博客名    创建一个博客的库</li>
+<li>打开你的hexo的目录，修改根目录下的_config.yml文件</li>
+</ul>
+<hr>
+<p><strong>deploy:<br>  type: git<br>  repository: <a href="https://github.com/haidenabian/haidenabian.github.io" target="_blank" rel="noopener">https://github.com/haidenabian/haidenabian.github.io</a><br>  branch: master</strong></p>
+<hr>
+<ul>
+<li>在themes下也有一个_config.yml文件，那个是你博客页面的配置文件<h4 id="启动hexo服务"><a href="#启动hexo服务" class="headerlink" title="启动hexo服务"></a>启动hexo服务</h4></li>
+<li>首先生成hexo静态网页 hexo g</li>
+<li>启动hexo服务 hexo s</li>
+</ul>
+<hr>
+<p><strong>root@ld:~/blog/ldblog/source/_posts# hexo s<br>INFO  Start processing<br>INFO  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop.</strong></p>
+<hr>
+<ul>
+<li>这就是服务启动的显示 ，登录本地localhost：4000就可以看到你搭建的博客了</li>
+<li>hexo d 来上传你的博客</li>
+<li>加入不能上传报错就安装插件 npm install hexo-deployer-git –save<h5 id="我配置了ssh密匙-但是在同步到服务器时候每次还要输入账号密码-没解决这个问题"><a href="#我配置了ssh密匙-但是在同步到服务器时候每次还要输入账号密码-没解决这个问题" class="headerlink" title="我配置了ssh密匙 但是在同步到服务器时候每次还要输入账号密码 没解决这个问题"></a>我配置了ssh密匙 但是在同步到服务器时候每次还要输入账号密码 没解决这个问题</h5></li>
+<li>测试 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a><br>git config –global user.name “test”<br>git config –global user.email “<a href="mailto:test@qq.com" target="_blank" rel="noopener">test@qq.com</a>“</li>
+<li>但是配置上传到github还是要每次上传要输入名称和密码。</li>
+</ul>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
